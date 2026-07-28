@@ -1,8 +1,8 @@
 # Mantri Traders — E-commerce & Portfolio Platform
 
-**Live site:** [mantritraders.netlify.app](https://mantritraders.netlify.app) · **API:** [mantri-traders-client.onrender.com](https://mantri-traders-client.onrender.com/api/health)
+**Live site:** [mantritraders.netlify.app](https://mantritraders.netlify.app)
 
-> The API runs on Render's free tier and spins down when idle, so the first request after a quiet period takes around 50 seconds. Subsequent requests are fast.
+> The API runs on Render's free tier and spins down when idle. On the first visit after a quiet period, products can take up to a minute to appear while the backend wakes up.
 
 A full-stack e-commerce and portfolio web application built for Mantri Traders, a local tile supplier. The platform showcases the supplier's product catalog and lets customers browse inventory and submit enquiries, with a secure admin panel that allows the owner to manage products without any developer involvement. Delivered to the client, earning a formal Letter of Recommendation.
 
