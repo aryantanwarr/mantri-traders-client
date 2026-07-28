@@ -7,7 +7,22 @@ require('dotenv').config({ path: './config.env' });
 const app = express();
 
 // Middleware
-app.use(cors());
+// CLIENT_URL is the deployed client origin; accepts a comma-separated list so a
+// preview/staging URL can be added without a code change. Unset means allow all,
+// which keeps the very first deploy working before the Netlify URL is known.
+const allowedOrigins = (process.env.CLIENT_URL || '')
+  .split(',')
+  .map(origin => origin.trim())
+  .filter(Boolean);
+
+if (allowedOrigins.length === 0) {
+  console.warn('CLIENT_URL is not set — CORS is open to all origins.');
+}
+
+app.use(cors({
+  origin: allowedOrigins.length ? allowedOrigins : true,
+  credentials: true
+}));
 app.use(express.json({ limit: '50mb' }));
 app.use('/uploads', express.static('uploads'));
 
